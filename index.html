@@ -269,6 +269,10 @@
             #commentSubmit:hover {
                 background: #008fb9;
             }
+
+            button {
+                font-family: "Spinnaker";
+            }
         </style>
     </head>
     <body>
@@ -281,42 +285,42 @@
                 </div>
                 
                 <div class="video-info">
-                    <h2 class="video-title">三体文明：主降临的预言</h2>
+                    <h2 class="video-title">The Lord is with us!</h2>
                     <div class="video-stats">
-                        <span class="play-count">播放量: <span id="playCount">0</span></span>
-                        <span class="like-count">点赞数: <span id="likeCount">0</span></span>
-                        <span class="comment-count">评论数: <span id="commentCount">0</span></span>
+                        <span class="play-count">views: <span id="playCount">0</span></span>
+                        <span class="like-count">like: <span id="likeCount">0</span></span>
+                        <span class="comment-count">comment: <span id="commentCount">0</span></span>
                     </div>
                     
                     <div class="video-actions">
                         <button class="video-action-btn like-btn" id="likeBtn">
-                            <span>点赞</span>
+                            <span>LIKE</span>
                             <span id="likeNum">0</span>
                         </button>
                         <button class="video-action-btn coin-btn" id="coinBtn">
-                            <span>投币</span>
+                            <span>AGREE</span>
                             <span id="coinNum">0</span>
                         </button>
                         <button class="video-action-btn favorite-btn" id="favoriteBtn">
-                            <span>收藏</span>
+                            <span>STARS</span>
                             <span id="favoriteNum">0</span>
                         </button>
                     </div>
                 </div>
                 
                 <div class="comments-section">
-                    <h3 class="comments-title">评论</h3>
+                    <h3 class="comments-title">Comment</h3>
                     
                     <!-- 评论表单 -->
                     <div class="comment-form">
-                        <h4>发表评论</h4>
+                        <h4>Leave a Comment</h4>
                         <div class="form-group">
-                            <input type="text" id="userName" placeholder="你的名字（可选）">
+                            <input type="text" id="userName" placeholder="Your Name (Selectable)">
                         </div>
                         <div class="form-group">
-                            <textarea id="commentInput" placeholder="请输入评论..."></textarea>
+                            <textarea id="commentInput" placeholder="Enter the Comment here, Please."></textarea>
                         </div>
-                        <button id="commentSubmit">发布评论</button>
+                        <button id="commentSubmit">Submit</button>
                     </div>
                     
                     <div id="commentsContainer">
@@ -381,8 +385,7 @@
                     console.error('加载数据失败:', error);
                     // 如果后端连接失败，显示一些默认评论
                     renderComments([
-                        {user: "三体追随者", time: "2小时前", content: "主即将降临，净化这个腐朽的世界！"},
-                        {user: "ETO降临派", time: "3小时前", content: "我们已准备好迎接主的到来，人类文明需要被重塑。"}
+                        {user: "ETOMembers", time: "2hours ago", content: "The Lord is with us!!!"}
                     ]);
                 }
             }
@@ -422,11 +425,11 @@
                     if (result.success) {
                         likeNum.textContent = formatNumber(result.likes);
                         likeBtn.classList.add('active');
-                        alert('感谢点赞！主与你同在！');
+                        // alert('感谢点赞！主与你同在！');
                     }
                 } catch (error) {
                     console.error('点赞失败:', error);
-                    alert('点赞失败，请检查后端服务器是否运行');
+                    // alert('点赞失败，请检查后端服务器是否运行');
                 }
             }
             
@@ -442,11 +445,11 @@
                     const result = await response.json();
                     if (result.success) {
                         coinNum.textContent = formatNumber(result.coins);
-                        alert('感谢投币支持！主会记住你的贡献！');
+                        // alert('感谢投币支持！主会记住你的贡献！');
                     }
                 } catch (error) {
                     console.error('投币失败:', error);
-                    alert('投币失败，请检查后端服务器是否运行');
+                    // alert('投币失败，请检查后端服务器是否运行');
                 }
             }
             
@@ -463,11 +466,11 @@
                     if (result.success) {
                         favoriteNum.textContent = formatNumber(result.favorites);
                         favoriteBtn.classList.add('active');
-                        alert('已收藏！愿主指引你的道路！');
+                        // alert('已收藏！愿主指引你的道路！');
                     }
                 } catch (error) {
                     console.error('收藏失败:', error);
-                    alert('收藏失败，请检查后端服务器是否运行');
+                    // alert('收藏失败，请检查后端服务器是否运行');
                 }
             }
             
@@ -477,7 +480,7 @@
                 const user = userNameInput.value.trim() || '匿名';
                 
                 if (!content) {
-                    alert('请输入评论内容');
+                    // alert('请输入评论内容');
                     return;
                 }
                 
@@ -500,11 +503,11 @@
                         commentInput.value = '';
                         // 重新加载评论
                         renderComments(result.comments);
-                        alert('评论发布成功！');
+                        // alert('评论发布成功！');
                     }
                 } catch (error) {
                     console.error('评论失败:', error);
-                    alert('评论发布失败，请检查后端服务器是否运行');
+                    // alert('评论发布失败，请检查后端服务器是否运行');
                 }
             }
 
